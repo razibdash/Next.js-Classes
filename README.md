@@ -16,21 +16,39 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Next.js Routing System
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js uses a file-based routing system. This means that the structure of your files and directories inside the `pages` or `app` directory determines the routes of your application.
 
-## Learn More
+## Basic Routing
 
-To learn more about Next.js, take a look at the following resources:
+Each file inside the `pages` or `app` directory will automatically become a route in your application. For example:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/app/about/page.tsx` will be accessible at `/about`
+- `src/app/profile/page.tsx` will be accessible at `/profile`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Example
 
-## Deploy on Vercel
+Here are two example components:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**`src/app/about/page.tsx`**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```tsx
+import React from "react";
+
+function About() {
+  return <div>About Page</div>;
+}
+
+export default About;
+```
+
+**`src/app/profile/page.tsx`**
+
+```tsx
+function Profile() {
+  return <div>Profile Page</div>;
+}
+
+export default Profile;
+```
