@@ -194,3 +194,16 @@ src/
       [[...slug]]/
         page.tsx
 </pre>
+
+# Next.js Group Routes
+
+Next.js allows you to group related routes together by organizing your files and directories in a hierarchical structure. This makes it easy to manage and maintain related routes in your application.
+
+## Group Routes
+
+To create group routes, you simply create a directory to group related routes together inside the `pages` or `app` directory. Each file inside the group directory will correspond to a route in your application.
+
+### Example Directory Structure
+
+Consider the following directory structure for authentication-related routes:
+src/ app/ (auth)/ forget-password/ page.tsx login/ page.tsx register/ page.tsx
