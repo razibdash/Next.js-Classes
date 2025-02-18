@@ -113,3 +113,70 @@ export default Second;
  <li>/blog/first will render the First component from page.tsx</li>
  <li>/blog/second will render the Second component from page.tsx</li>
 </ul>
+
+# Next.js Dynamic Routes and Nested Dynamic Routes
+
+Next.js uses a file-based routing system that allows you to create dynamic routes by using square brackets in the file or directory names. This feature is useful for creating routes that depend on dynamic parameters, such as product IDs or user IDs.
+
+## Dynamic Routes
+
+Dynamic routes can be created by using square brackets in the file name. For example, to create a route for a product with a dynamic `productId`, you can create a file named `[productId].tsx` inside the `pages` or `app` directory.
+
+### Example Directory Structure
+
+### Example Component
+
+**`src/app/products/[productId]/page.tsx`**
+
+```tsx
+import React from "react";
+
+async function ProductId({
+  params,
+}: {
+  params: Promise<{ productId: string }>;
+}) {
+  const productId = (await params).productId;
+  return <h1>Details about product Id: {productId}</h1>;
+}
+
+export default ProductId;
+```
+
+### Nested Dynamic Routes
+
+<p>Nested dynamic routes can be created by nesting directories with square brackets. For example, to create a route for a product review with dynamic productId and reviewId, you can create nested directories [productId] and [reviewId].</p>
+
+### Example Directory Structure
+
+<pre>
+  src/
+  app/
+    products/
+      [productId]/
+        reviews/
+          [reviewId]/
+            page.tsx
+        page.tsx
+      page.tsx
+</pre>
+
+```tsx
+import React from "react";
+
+async function ReviewId({
+  params,
+}: {
+  params: Promise<{ productId: string; reviewId: string }>;
+}) {
+  const { productId, reviewId } = await params;
+
+  return (
+    <h1>
+      Review {reviewId} for product Id {productId}
+    </h1>
+  );
+}
+
+export default ReviewId;
+```
