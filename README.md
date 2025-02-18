@@ -180,3 +180,17 @@ async function ReviewId({
 
 export default ReviewId;
 ```
+
+# Catch-All Segments
+
+<p>Catch-all segments can be created using three dots inside square brackets. This allows you to match multiple segments in a single route. For example, to create a route that matches any number of segments under /docs, you can create a file named [[...slug]].tsx.</p>
+
+### Example Directory Structure
+
+<pre>
+src/
+  app/
+    docs/
+      [[...slug]]/
+        page.tsx
+</pre>
