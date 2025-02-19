@@ -308,3 +308,47 @@ export default function RootLayout({
   );
 }
 ```
+
+# Next.js Params and Search Params
+
+Next.js provides a powerful way to handle dynamic routes and query parameters using `params` and `searchParams`. This allows you to create dynamic and flexible routes that can handle various parameters and query strings.
+
+## Dynamic Routes with Params
+
+Dynamic routes in Next.js can be created by using square brackets in the file or directory names. The `params` object contains the dynamic parameters for the route.
+
+### Example Component
+
+**`src/app/articles/[articleId]/page.tsx`**
+
+```tsx
+"use client";
+import Link from "next/link";
+import React from "react";
+import { use } from "react";
+
+const NewsArticles = ({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ articleId: string }>;
+  searchParams: Promise<{ lang?: "en" | "bn" | "sp" }>;
+}) => {
+  const { articleId } = use(params);
+  const { lang } = use(searchParams);
+
+  return (
+    <div>
+      <h1>New Articles Id {articleId}</h1>
+      <p>Reading in language lang {lang}</p>
+      <div>
+        <Link href={`/articles/${articleId}?lang=en`}>english</Link>
+        <Link href={`/articles/${articleId}?lang=bn`}>bangla</Link>
+        <Link href={`/articles/${articleId}?lang=sp`}>spanish</Link>
+      </div>
+    </div>
+  );
+};
+
+export default NewsArticles;
+```

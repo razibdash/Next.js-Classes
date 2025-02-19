@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import Navbar from "./_lib/navigation/Navbar"
+import Navbar from "./components/navigation/Navbar"
 
 export const metadata:Metadata = {
   title: {
