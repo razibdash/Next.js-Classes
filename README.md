@@ -352,3 +352,57 @@ const NewsArticles = ({
 
 export default NewsArticles;
 ```
+
+# Next.js Loading UI and Error Handling
+
+Next.js provides built-in support for handling loading states and errors in your application. This allows you to create a better user experience by displaying appropriate messages or UI elements during data fetching or when an error occurs.
+
+## Loading UI
+
+To handle loading states in Next.js, you can create a `loading.tsx` file in the same directory as your page component. This file will be automatically used by Next.js to display a loading UI while the page is being fetched.
+
+### Example Loading Component
+
+**`src/app/order-now/loading.tsx`**
+
+```tsx
+import React from "react";
+
+const Loading = () => {
+  return <div>Loading...</div>;
+};
+
+export default Loading;
+```
+
+### Error Handling
+
+<p>To handle errors in Next.js, you can create an error.tsx file in the same directory as your page component. This file will be automatically used by Next.js to display an error UI when an error occurs.</p>
+
+### Example Directory Structure
+
+<p>Consider the following directory structure for product reviews:</p>
+<pre>
+src/
+  app/
+    products/
+      [productId]/
+        reviews/
+          [reviewId]/
+            error.tsx
+            layout.tsx
+            page.tsx
+</pre>
+
+### Example Error Component
+
+```tsx
+"use client";
+import React from "react";
+
+const ErrorBoundary = ({ error }: { error: Error }) => {
+  return <h2>{error.message}</h2>;
+};
+
+export default ErrorBoundary;
+```
